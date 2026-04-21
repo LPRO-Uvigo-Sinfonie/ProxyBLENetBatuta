@@ -13,7 +13,7 @@ TCP = 1
 mode = UDP # o UDP
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM if mode == TCP else socket.SOCK_DGRAM)
-SERVER_ADDR = ("localhost", 5005)
+SERVER_ADDR = ("localhost", 8090)
 
 if mode == TCP:
     client_socket.connect(SERVER_ADDR)
@@ -26,7 +26,7 @@ def send_gesture(msg: bytes):
 
 def notification_handler(characteristic: str, data: bytearray):
     print(f"Paquete: {data}")
-    send_gesture(bytes([30] + data))
+    send_gesture(bytes([30]) + bytes(data))
 
 async def main(address):
     disconnected_event = asyncio.Event()
