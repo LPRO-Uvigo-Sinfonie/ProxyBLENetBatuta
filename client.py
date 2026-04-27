@@ -10,7 +10,7 @@ CHARACTERISTIC_UUID = "abcd1234-5678-1234-5678-abcdef123456"
 UDP = 0
 TCP = 1
 
-mode = UDP # o UDP
+mode = TCP # o UDP
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM if mode == TCP else socket.SOCK_DGRAM)
 SERVER_ADDR = ("localhost", 8090)
